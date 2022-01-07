@@ -2,7 +2,8 @@
 import express from "express"; //"type" :"module"
 import { MongoClient } from "mongodb"; //"type" :"module"
 import dotenv from "dotenv";
-dotenv.config();
+// should be in first line
+dotenv.config(); //getting all env Keys
 
 const app = express();
 //middleware
@@ -21,7 +22,8 @@ async function CreateConnection() {
 }
 const client_fun_called = await CreateConnection();
 
-const PORT = 9000;
+// const PORT = 9000;
+const PORT = process.env.PORT;
 app.get("/", (request, response) => {
   response.send("Hello **** !!!");
 });
